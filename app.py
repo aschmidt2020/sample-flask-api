@@ -70,17 +70,18 @@ def update_recipe(recipe_name):
 
 @app.route("/recipes/<recipe_name>", methods=['DELETE'])
 def delete_recipe(recipe_name):
+    selected_recipe = get_recipe(recipe_name)
     json_file = open('data.json', 'r')
     recipes = json.load(json_file)
-    for recipe in recipes["recipes"]:
-        if recipe['name'] == recipe_name:
-            json_file = open('data.json', 'w')
-            recipes["recipes"].remove(recipe)
-            json_file.write(json.dumps(recipes, indent=4))
-            json_file.close()
-            
-            return make_response({}, 204) #ends loop if recipe is found
-    return make_response(jsonify({'error': 'Recipe does not exist'}), 404)
+    
+    if selected_recipe != 'None':
+        json_file = open('data.json', 'w')
+        recipes["recipes"].pop(selected_recipe['index'])
+        json_file.write(json.dumps(recipes, indent=4))
+        json_file.close()
+        return make_response({}, 204) #ends loop if recipe is found
+    else:
+        return make_response(jsonify({'error': 'Recipe does not exist'}), 404)
 
 @app.errorhandler(404)
 def not_found(error):

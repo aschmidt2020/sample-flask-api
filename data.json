@@ -46,23 +46,6 @@
                 "Add tea leaves/tea bags, chai masala; mix and steep for 3-4 minutes",
                 "Remove mixture from heat; strain and enjoy"
             ]
-        },
-        {
-            "name": "spaghetti1",
-            "ingredients": [
-                "500mL water",
-                "100g spaghetti",
-                "25mL olive oil",
-                "4 cloves garlic",
-                "Salt"
-            ],
-            "instructions": [
-                "Heat garlic in olive oil",
-                "Boil water in pot",
-                "Add pasta to boiling water",
-                "Remove pasta from water and mix with garlic olive oil",
-                "Salt to taste and enjoy"
-            ]
         }
     ]
 }
